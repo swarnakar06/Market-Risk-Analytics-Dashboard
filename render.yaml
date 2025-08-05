@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: market-risk-predictor
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn risk_predictor.wsgi
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: False
+      - key: EMAIL_HOST_USER
+        value: kumarraarav38@gmail.com     # change if needed
+      - key: EMAIL_HOST_PASSWORD
+        value: pquceahnlktksgcy            # use app password
