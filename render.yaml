@@ -4,6 +4,8 @@ services:
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn risk_predictor.wsgi
+    build:
+      pythonVersion: 3.11.8  
     envVars:
       - key: DJANGO_SECRET_KEY
         generateValue: true
